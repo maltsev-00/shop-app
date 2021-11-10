@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: user
+    password: user
+    url: jdbc:h2:mem:shopDb
+
+  liquibase:
+    url: jdbc:h2:mem:shopDb
+    user: user
+    password: user
+    change-log: classpath:/db/changelog/init.xml
+    enabled: true
+  sql:
+    init:
+      platform: org.hibernate.dialect.H2Dialect
