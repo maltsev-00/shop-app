@@ -40,7 +40,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteById(UUID id) {
         var productEntity = productRepository.findById(id);
-
         if (productEntity.isPresent()) {
             productRepository.delete(productEntity.get());
         } else {
