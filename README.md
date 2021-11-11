@@ -1,3 +1,3 @@
 # shop-app
 
- http://localhost:8082/swagger-ui/
+ http://localhost:8080/swagger-ui/
