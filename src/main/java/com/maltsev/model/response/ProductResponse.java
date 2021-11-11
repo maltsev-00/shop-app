@@ -6,7 +6,7 @@ import com.maltsev.model.dto.ProductPhotoDto;
 import lombok.Builder;
 import lombok.Value;
 
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 @Value
@@ -16,7 +16,7 @@ public class ProductResponse {
     String name;
     String description;
     int price;
-    Set<ManufacturerProductDto> manufacturerProduct;
+    List<ManufacturerProductDto> manufacturerProduct;
     ProductPhotoDto productPhoto;
-    Set<CategoryProductDto> categoryProducts;
+    List<CategoryProductDto> categoryProducts;
 }

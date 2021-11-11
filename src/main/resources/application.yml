@@ -13,3 +13,9 @@ spring:
   sql:
     init:
       platform: org.hibernate.dialect.H2Dialect
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true

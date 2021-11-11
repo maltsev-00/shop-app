@@ -1,5 +1,6 @@
 package com.maltsev.controller.handler;
 
+import com.maltsev.exception.NotFoundProductException;
 import com.maltsev.model.ExceptionResponseDto;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -67,6 +68,17 @@ public class GlobalExceptionHandler {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(makeResponseBody(errorMessage));
     }
+
+    @ExceptionHandler(NotFoundProductException.class)
+    public ResponseEntity<ExceptionResponseDto> handleNotFoundException(NotFoundProductException ex) {
+        var errorMessage = ex.getMessage();
+        log.error(errorMessage);
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(makeResponseBody(errorMessage));
+    }
+
 
     @ApiResponse(responseCode = "500", description = "Internal server error. Неожиданная ошибка, возникшая при работе метода",
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ExceptionResponseDto.class)))

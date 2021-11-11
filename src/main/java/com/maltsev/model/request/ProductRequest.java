@@ -1,32 +1,27 @@
 package com.maltsev.model.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Value;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Value
 public class ProductRequest {
     @NotNull
-    private UUID id;
+    UUID id;
     @NotNull
     @NotEmpty
-    private String name;
+    String name;
     @NotNull
-    private String description;
+    String description;
     @NotNull
-    private int price;
+    int price;
     @NotNull
-    private Set<ManufacturerProductRequest> manufacturerProduct;
+    List<ManufacturerProductRequest> manufacturerProduct;
     @NotNull
-    private ProductPhotoRequest productPhoto;
+    ProductPhotoRequest productPhoto;
     @NotNull
-    private List<CategoryProductRequest> categoryProducts;
+    List<CategoryProductRequest> categoryProducts;
 }

@@ -4,6 +4,7 @@ import com.maltsev.model.entity.CategoryProductEntity;
 import lombok.Builder;
 import lombok.Value;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -15,7 +16,7 @@ public class ProductDto {
     String name;
     String description;
     int price;
-    Set<ManufacturerProductDto> manufacturerProduct;
+    List<ManufacturerProductDto> manufacturerProduct;
     ProductPhotoDto productPhoto;
-    Set<CategoryProductEntity> categoryProducts;
+    List<CategoryProductEntity> categoryProducts;
 }

@@ -25,7 +25,7 @@ public class ProductEntity {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "manufacturer_product_id")
-    private Set<ManufacturerProductEntity> manufacturerProduct;
+    private List<ManufacturerProductEntity> manufacturerProduct;
 
 
     @OneToOne(cascade = CascadeType.ALL)

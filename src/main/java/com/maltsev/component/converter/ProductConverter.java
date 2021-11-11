@@ -24,4 +24,13 @@ public interface ProductConverter {
     ProductShortInfo convertProductEntityToShortInfo(ProductEntity productEntity);
 
     List<CategoryProductEntity> convertCategoryDtoToEntity(List<CategoryProductRequest> categoryProductRequests);
+
+    default ProductEntity getProductEntity(ProductRequest productRequest) {
+        var productEntity = convertRequestToEntity(productRequest);
+        var categoryProductEntityList = convertCategoryDtoToEntity(productRequest.getCategoryProducts());
+
+        productEntity.setCategoryProducts(categoryProductEntityList);
+        categoryProductEntityList.forEach(categoryProductEntity -> categoryProductEntity.getProductEntities().add(productEntity));
+        return productEntity;
+    }
 }
