@@ -28,7 +28,6 @@ public interface ProductConverter {
     default ProductEntity getProductEntity(ProductRequest productRequest) {
         var productEntity = convertRequestToEntity(productRequest);
         var categoryProductEntityList = convertCategoryDtoToEntity(productRequest.getCategoryProducts());
-
         productEntity.setCategoryProducts(categoryProductEntityList);
         categoryProductEntityList.forEach(categoryProductEntity -> categoryProductEntity.getProductEntities().add(productEntity));
         return productEntity;

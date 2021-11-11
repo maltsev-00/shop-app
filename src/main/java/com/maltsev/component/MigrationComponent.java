@@ -6,6 +6,7 @@ import com.maltsev.model.entity.ProductEntity;
 import com.maltsev.model.entity.ProductPhotoEntity;
 import com.maltsev.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class MigrationComponent {
 
     private final ProductRepository productRepository;
@@ -37,6 +39,7 @@ public class MigrationComponent {
             productEntityList.add(productEntity);
         }
         productRepository.saveAll(productEntityList);
+        log.info("Save 500 products success ...");
     }
 
 }
